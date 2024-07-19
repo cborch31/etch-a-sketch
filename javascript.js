@@ -2,7 +2,7 @@
 //create grid of divs using loop
 const gridContainer = document.querySelector('#gridContainer'); //remember: # refers to an ID tag
 
-let gridAmount = 16; //will update to include user selection (cannot be greater than 100)
+let gridAmount = 50; //will update to include user selection (cannot be greater than 100)
 
 for (let i=0; i<gridAmount; i++){
     for (let j=0; j<gridAmount; j++) {
@@ -12,7 +12,12 @@ for (let i=0; i<gridAmount; i++){
     } 
 };
 
-const cellList = document.querySelectorAll('cell');
-// cellList.style.flexBasis = '6.25%'; this doesn't work.
+const cellList = document.querySelectorAll('.cell');
 
-console.log(cellList); //returns a nodeList
+let gridPercent = (100/gridAmount) + '%';
+
+for(cell of cellList) {
+    cell.style.flexBasis = gridPercent;
+}
+
+//console.log(cellList); //returns a nodeList

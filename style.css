@@ -17,6 +17,6 @@
 .cell {
     margin: 0;
     height: auto;
-    flex-basis: 6.25%; /* currently, this must update each time new amt of grid is called. */
+    /* flex-basis: 6.25%; currently, this must update each time new amt of grid is called. */
     border: 0.5px solid;
 }
