@@ -1,0 +1,12 @@
+
+//create grid of divs using loop
+const gridContainer = document.querySelector('#gridContainer'); //remember: # refers to an ID tag
+
+for (let i=0; i<16; i++){
+    for (let j=0; j<16; j++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        gridContainer.appendChild(cell);
+    } 
+};
+
