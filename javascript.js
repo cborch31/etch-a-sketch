@@ -1,8 +1,28 @@
 
-//create grid of divs using loop
-const gridContainer = document.querySelector('#gridContainer'); //remember: # refers to an ID tag
+const gridContainer = document.querySelector('#gridContainer'); 
+const mainPage = document.querySelector('#mainPage');
+const btn = document.querySelector('#inputGrid');
 
-let gridAmount = 50; //will update to include user selection (cannot be greater than 100)
+mainPage.appendChild(btn);
+mainPage.appendChild(gridContainer);
+
+function gridAmountPrompt() {
+    let entry = prompt('Please input the size of your grid between 1 and 100. For instance, inputting 8 will create an 8x8 grid.');
+    if (entry != null) {
+        if (entry < 1 || entry > 100) {
+            alert('Invalid entry. Please select a number between 1 and 100.');
+        } else { 
+            console.log(entry);
+            return entry; 
+        }
+    }
+};
+
+btn.addEventListener('click', gridAmountPrompt);
+
+
+//put this into a function.
+let gridAmount = 10; 
 
 for (let i=0; i<gridAmount; i++){
     for (let j=0; j<gridAmount; j++) {
@@ -18,6 +38,16 @@ let gridPercent = (100/gridAmount) + '%';
 
 for(cell of cellList) {
     cell.style.flexBasis = gridPercent;
-}
+};
 
-//console.log(cellList); //returns a nodeList
+cellList.forEach(cell => {
+    cell.addEventListener('mouseenter', function(e){
+        if(e.shiftKey == 'true' && e.buttons >0){ //revise. Shift doesn't work
+            cell.style.backgroundColor = 'white';
+            cell.style.color = 'white';
+        } else if(e.buttons >0){
+        cell.style.backgroundColor = 'blue';
+        cell.style.color = 'blue';
+        };
+    })
+});

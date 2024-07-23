@@ -2,6 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+#mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* justify-content: center; */
+}
+
+#inputGrid {
+    padding: 5px;
 }
 
 #gridContainer {
@@ -11,12 +24,16 @@
     height: 100vh;
     width: 100vh;
     /* justify-content: space-between; */
-    padding: 50px;
+    padding: 20px;
 }
 
 .cell {
     margin: 0;
     height: auto;
-    /* flex-basis: 6.25%; currently, this must update each time new amt of grid is called. */
-    border: 0.5px solid;
+    background-color: white;
 }
+
+/* .cell:hover {
+    background-color: blue;
+    color: blue;
+} */
