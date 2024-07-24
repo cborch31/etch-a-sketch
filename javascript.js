@@ -2,6 +2,8 @@
 const gridContainer = document.querySelector('#gridContainer'); 
 const mainPage = document.querySelector('#mainPage');
 const btn = document.querySelector('#inputGrid');
+let cell = '';
+let gridAmount = 0;
 
 mainPage.appendChild(btn);
 mainPage.appendChild(gridContainer);
@@ -13,41 +15,43 @@ function gridAmountPrompt() {
             alert('Invalid entry. Please select a number between 1 and 100.');
         } else { 
             console.log(entry);
-            return entry; 
+            console.log(gridContainer);
+            gridAmount = entry;
+            makeGrid();
         }
     }
 };
 
 btn.addEventListener('click', gridAmountPrompt);
 
+function makeGrid(){
+    document.getElementById('gridContainer').innerHTML = '';
+    for (let i=0; i<gridAmount; i++){
+        for (let j=0; j<gridAmount; j++) {
+            cell = document.createElement('div');
+            cell.classList.add('cell');
+            gridContainer.appendChild(cell);
+        } 
+    };
 
-//put this into a function.
-let gridAmount = 10; 
+    cellList = document.querySelectorAll('.cell');
 
-for (let i=0; i<gridAmount; i++){
-    for (let j=0; j<gridAmount; j++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        gridContainer.appendChild(cell);
-    } 
+    let gridPercent = (100/gridAmount) + '%';
+
+    for(cell of cellList) {
+        cell.style.flexBasis = gridPercent;
+    };
+
+    cellList.forEach(cell => {
+        cell.addEventListener('mouseenter', function(e){
+            if(e.shiftKey == 'true' && e.buttons >0){ //revise. Shift doesn't work
+                cell.style.backgroundColor = 'white';
+                cell.style.color = 'white';
+            } else if(e.buttons >0){
+            cell.style.backgroundColor = 'blue';
+            cell.style.color = 'blue';
+            };
+        })
+    });
+
 };
-
-const cellList = document.querySelectorAll('.cell');
-
-let gridPercent = (100/gridAmount) + '%';
-
-for(cell of cellList) {
-    cell.style.flexBasis = gridPercent;
-};
-
-cellList.forEach(cell => {
-    cell.addEventListener('mouseenter', function(e){
-        if(e.shiftKey == 'true' && e.buttons >0){ //revise. Shift doesn't work
-            cell.style.backgroundColor = 'white';
-            cell.style.color = 'white';
-        } else if(e.buttons >0){
-        cell.style.backgroundColor = 'blue';
-        cell.style.color = 'blue';
-        };
-    })
-});
