@@ -10,7 +10,6 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    /* justify-content: center; */
 }
 
 #inputGrid {
@@ -23,7 +22,6 @@
     margin: 0 auto;
     height: 100vh;
     width: 100vh;
-    /* justify-content: space-between; */
     padding: 20px;
 }
 
@@ -33,7 +31,8 @@
     background-color: white;
 }
 
-/* .cell:hover {
-    background-color: blue;
-    color: blue;
-} */
+#inputGrid {
+    background-color: honeydew;
+    border-radius: 5px;
+    border-color: darkgreen;
+}
