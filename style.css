@@ -32,7 +32,9 @@
 }
 
 #inputGrid {
-    background-color: honeydew;
     border-radius: 5px;
-    border-color: darkgreen;
+}
+
+.pageDirections {
+    padding: 5px;
 }

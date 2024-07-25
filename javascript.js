@@ -2,10 +2,17 @@
 const gridContainer = document.querySelector('#gridContainer'); 
 const mainPage = document.querySelector('#mainPage');
 const btn = document.querySelector('#inputGrid');
+
+const pageDirections = document.createElement('div');
+pageDirections.classList.add('pageDirections');
+pageDirections.textContent = 'After selecting a palette size, click and drag on the etch-a-sketch to draw. Hold shift to erase.';
+
 let cell = '';
 let gridAmount = 0;
+let colors = ['#ffbfbf','#ffe1bf','#fff2bf','#dbffbf','#bfffe9','#bfdfff', '#cebfff'];
 
 mainPage.appendChild(btn);
+mainPage.appendChild(pageDirections);
 mainPage.appendChild(gridContainer);
 
 function gridAmountPrompt() {
@@ -48,10 +55,8 @@ function makeGrid(){
                 cell.style.backgroundColor = 'white';
                 cell.style.color = 'white';
             } else if(e.buttons >0){
-            cell.style.backgroundColor = 'blue';
-            cell.style.color = 'blue';
+            cell.style.backgroundColor = colors[(Math.floor(Math.random() * colors.length))];
             };
         })
     });
-
 };
