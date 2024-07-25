@@ -44,7 +44,7 @@ function makeGrid(){
 
     cellList.forEach(cell => {
         cell.addEventListener('mouseenter', function(e){
-            if(e.shiftKey == 'true' && e.buttons >0){ //revise. Shift doesn't work
+            if(e.shiftKey && e.buttons >0){
                 cell.style.backgroundColor = 'white';
                 cell.style.color = 'white';
             } else if(e.buttons >0){
